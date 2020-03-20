@@ -1,18 +1,35 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Vue Front-End</h1>
+    <center>
+      <table style="width:20%">
+        <tr>
+          <td>Front-End</td>
+          <td>1.0.0.0</td>
+        </tr>
+        <tr>
+          <td>Back-End</td>
+          <td>{{version}}</td>
+        </tr>
+      </table>
+    </center>
+  
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  import { versionService } from '../services/version.service.js'
+  
+  export default {
+    data() {
+      return {
+            version: "Unknown"
+        }
+    },
+    created() {
+      versionService.GetVersion().then(data => this.version = data.Data.Version);
+    },
+    methods: {}
+  };
 </script>
