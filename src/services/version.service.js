@@ -11,6 +11,7 @@ function GetVersion() {
     };
 
     return fetch("http://danielmigchelsuserservice.kn01.fhict.nl/", requestOptions).then(handleResponse);
+    //return fetch("http://danielmigchelsgateway.kn01.fhict.nl/", requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
