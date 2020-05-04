@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/DanielMigchels/S6Individual_Vue?branch=master)](https://bettercodehub.com/)
+
 # s6individual_vue
 
 ## Project setup
