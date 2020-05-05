@@ -7,6 +7,7 @@ import Dashboard from './views/Dashboard.vue'
 import Logout from './views/Logout.vue'
 import Register from './views/Register.vue'
 import NotFound from './views/NotFound.vue'
+import Sites from './views/Sites.vue'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
         path: '/logout',
         name: 'logout',
         component: Logout
+      },
+      {
+        path: '/sites',
+        name: 'sites',
+        component: Sites
       },
       {
         path: "*",

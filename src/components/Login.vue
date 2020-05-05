@@ -2,7 +2,7 @@
   <div class="loginComponent">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-5 mx-auto">
           <div class="card rounded-0">
             <div class="card-header">
                 <h4 class="mb-0">Sign in</h4>

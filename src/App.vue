@@ -13,6 +13,9 @@
           <li class="nav-item" v-if="jwt">
             <a class="nav-link" href="/dashboard" v-if="jwt">Dashboard</a>
           </li>
+          <li class="nav-item" v-if="jwt">
+            <a class="nav-link" href="/sites" v-if="jwt">Sites</a>
+          </li>
         </ul>
         <ul class="navbar-nav navbar-left">
           <li class="nav-item" v-if="!jwt">
