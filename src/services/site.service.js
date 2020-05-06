@@ -1,6 +1,7 @@
 export const siteService = {
     get,
     getId,
+    getPage,
     add
 };
 
@@ -11,6 +12,15 @@ function get() {
     };
 
     return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/site/site/`, requestOptions).then(handleResponse);
+}
+
+function getPage(page, pagesize) {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+
+    return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/site/site/page/`+page+`/length/` + pagesize, requestOptions).then(handleResponse);
 }
 
 function getId(id) {

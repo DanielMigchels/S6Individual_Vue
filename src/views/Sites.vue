@@ -2,9 +2,9 @@
   <div class="sites">
     <div class="container mb-5">
       <h1>Sites</h1>
-      <div class="row">
-        <div class="container col-lg-8">
-          <table v-if="site[0]" class="table table-striped">
+      <div class="row mt-5">
+        <div v-if="site[0]" class="container col-lg-8">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Id</th>
@@ -26,11 +26,20 @@
           </table>
           <div class="row">
             <div v-if="site[0] && (0 < Math.ceil(this.site.length / this.pageSize) - 1) " class="col-sm-6 float-left mb-5">
-              <button class="btn btn-secondary mr-1" id="btnPrevious" @click="Previous()">Previous</button>
-              <button class="btn btn-primary mr-1" id="btnNext" @click="Next()">Next</button>
+
+              <button v-if="!(this.page < Math.ceil(this.site.length / this.pageSize) - 1)" class="btn btn-primary mr-1" id="btnPrevious" @click="Previous()">Previous</button>
+              <button v-if="(this.page < Math.ceil(this.site.length / this.pageSize) - 1)" class="btn btn-secondary mr-1" id="btnPrevious">Previous</button>
+              
+              <button v-if="!(this.page > 0)" class="btn btn-primary mr-1" id="btnNext" @click="Next()">Next</button>
+              <button v-if="(this.page > 0)" class="btn btn-secondary mr-1" id="btnNext">Next</button>
 
               <span>Page {{ page+1 }} out of {{ Math.ceil(site.length / pageSize) }}</span>
             </div>
+          </div>
+        </div>
+        <div v-if="!site[0]" class="container col-lg-8">
+          <div class="d-flex justify-content-center mt-5 mb-5">
+            <div class="loader mb-5"></div>
           </div>
         </div>
 
@@ -109,3 +118,19 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.loader {
+  border: 8px solid #303030; /* Light grey */
+  border-top: 8px solid #444444; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
