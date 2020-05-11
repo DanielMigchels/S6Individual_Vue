@@ -1,3 +1,5 @@
+import { HostService } from "./host.service.js";
+
 export const siteService = {
     get,
     getId,
@@ -11,7 +13,9 @@ function get() {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/site/site/`, requestOptions).then(handleResponse);
+    
+
+    return fetch(HostService.GetHost() + `/site/site/`, requestOptions).then(handleResponse);
 }
 
 function getPage(page, pagesize) {
@@ -20,7 +24,7 @@ function getPage(page, pagesize) {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/site/site/page/`+page+`/length/` + pagesize, requestOptions).then(handleResponse);
+    return fetch(HostService.GetHost() + `/site/site/page/`+page+`/length/` + pagesize, requestOptions).then(handleResponse);
 }
 
 function getId(id) {
@@ -29,7 +33,7 @@ function getId(id) {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/site/site/` + id, requestOptions).then(handleResponse);
+    return fetch(HostService.GetHost() + `/site/site/` + id, requestOptions).then(handleResponse);
 }
 
 function add(domainName) {
@@ -39,7 +43,7 @@ function add(domainName) {
         body: JSON.stringify({ domainName })
     };
 
-    return fetch(`http://danielmigchelsgateway.kn01.fhict.nl/site/site/`, requestOptions).then(handleResponse);
+    return fetch(HostService.GetHost() + `/site/site/`, requestOptions).then(handleResponse);
 }
 
 function getToken() {
